@@ -41,7 +41,7 @@ const Index = () => {
         <Link href="/nouclient">
           <a className="bg-blue-800 py-2 px-5 mt-3 inline-block text-white rounded text-sm hover:bg-gray-800 uppercase w-full lg:w-auto text-center">Nou Client</a>
         </Link>
-        <div className="overflow-x-scroll">
+        {/* <div className="overflow-x-scroll"> */}
           <table className="table-auto shadow-md mt-10 w-full w-lg">
             <thead className="bg-gray-800">
               <tr className="text-white">
@@ -60,7 +60,7 @@ const Index = () => {
               ))}
             </tbody>
           </table>
-        </div>
+        {/* </div> */}
       </Layout>
     </div >
   )
