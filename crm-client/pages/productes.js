@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import Layout from '../Components/Layout'
 import { gql, useQuery } from '@apollo/client'
 import Product from '../Components/Product'
@@ -15,7 +16,15 @@ const GET_PRODUCTS = gql`
 
 const Productes = () => {
 
-  const { data, loading, error } = useQuery(GET_PRODUCTS)
+  const { data, loading, error, startPolling, stopPolling } = useQuery(GET_PRODUCTS)
+
+  useEffect(() => {
+    startPolling(100)
+    return () => {
+      stopPolling()
+    }
+  }, [startPolling, stopPolling])
+
   if (loading) return <p className="my-2 bg-blue-100 border-l-4 border-blue-700 p-4 text-center">Carregant...</p>
 
   return (

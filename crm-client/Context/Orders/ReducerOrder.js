@@ -10,7 +10,7 @@ export default (state, action) => {
     case SELECT_CLIENT:
       return {
         ...state,
-        client: action.payload
+        client: action.payload,
       }
     case SELECT_PRODUCT:
       return {

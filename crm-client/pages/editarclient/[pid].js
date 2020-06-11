@@ -73,9 +73,22 @@ const EditarClient = () => {
       console.log(error);
     }
   }
+
+  const cancelClient = () => {
+    return router.push('/clients')
+  }
+
   return (
     <Layout>
-      <h1 className="text-2xl text-gray-800">Editar Client</h1>
+      <div className="flex justify-between">
+        <h1 className="inline-block text-2xl text-gray-800 justify-center">Editar Client</h1>
+        <button
+          type="button"
+          className="inline-block bg-red-700 opacity-75 w-full sm:w-auto uppercase text-sm rounded px-2 text-white hover:opacity-100"
+          onClick={() => cancelClient()}
+        >Cancelar Client
+        </button>
+      </div>
       <div className="flex justify-center mt-5">
         <div className="w-full max-w-lg">
           <Formik
@@ -92,8 +105,27 @@ const EditarClient = () => {
                   onSubmit={props.handleSubmit}
                 >
                   <div>
+                    <label className="block text-gray-700 test-sm font-bold mb-2" htmlFor="company">
+                      Empresa
+                    </label>
+                    <input
+                      className="shadow-appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                      id="company"
+                      type="text"
+                      placeholder="Empresa"
+                      value={props.values.company}
+                      onChange={props.handleChange}
+                      onBlur={props.handleBlur}
+                    />
+                  </div>
+                  {props.touched.company && props.errors.company ? (
+                    <div className="my-2 bg-red-100 border-l-4 border-red-500 text-red-700 p-2">
+                      <p>{props.errors.company}</p>
+                    </div>
+                  ) : null}
+                  <div>
                     <label className="block text-gray-700 test-sm font-bold mb-2" htmlFor="name">
-                      Nom
+                      Nom contacte
                     </label>
                     <input
                       className="shadow-appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -112,7 +144,7 @@ const EditarClient = () => {
                   ) : null}
                   <div>
                     <label className="block text-gray-700 test-sm font-bold mb-2" htmlFor="surname">
-                      Cognom
+                      Cognom contacte
                     </label>
                     <input
                       className="shadow-appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -127,25 +159,6 @@ const EditarClient = () => {
                   {props.touched.surname && props.errors.surname ? (
                     <div className="my-2 bg-red-100 border-l-4 border-red-500 text-red-700 p-2">
                       <p>{props.errors.surname}</p>
-                    </div>
-                  ) : null}
-                  <div>
-                    <label className="block text-gray-700 test-sm font-bold mb-2" htmlFor="company">
-                      Empresa
-                    </label>
-                    <input
-                      className="shadow-appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                      id="company"
-                      type="text"
-                      placeholder="Empresa"
-                      value={props.values.company}
-                      onChange={props.handleChange}
-                      onBlur={props.handleBlur}
-                    />
-                  </div>
-                  {props.touched.company && props.errors.company ? (
-                    <div className="my-2 bg-red-100 border-l-4 border-red-500 text-red-700 p-2">
-                      <p>{props.errors.company}</p>
                     </div>
                   ) : null}
                   <div>
@@ -189,7 +202,7 @@ const EditarClient = () => {
                   <div className="flex justify-center">
                     <input
                       type="submit"
-                      className="md:w-1/2 bg-gray-700 w-full mt-5 p-2 text-white uppercase hover:bg-gray-900"
+                      className="md:w-1/2 bg-gray-700 w-full mt-5 p-2 text-white uppercase hover:bg-gray-900 rounded"
                       value="Guardar client"
                     />
                   </div>

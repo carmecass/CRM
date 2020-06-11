@@ -11,17 +11,17 @@ const Sidebar = () => {
         <p className="text-white text-2xl font-weigth">CRM-Clients</p>
       </div>
       <nav className="mt-3 list-none">
-        <li className={router.pathname === "/clients" ? "text-white block bg-blue-800 p-2" : "text-white block p-2"}>
+        <li className={router.pathname === "/clients" ? "text-white block bg-blue-800 p-2" : "text-white block p-2 hover:bg-indigo-800"}>
           <Link href="/clients">
             <a>Clients</a>
           </Link>
         </li>
-        <li className={router.pathname === "/comandes" ? "text-white block bg-blue-800 p-2" : "text-white block p-2"}>
+        <li className={router.pathname === "/comandes" ? "text-white block bg-blue-800 p-2" : "text-white block p-2 hover:bg-indigo-800"}>
           <Link href="/comandes">
             <a>Comandes</a>
           </Link>
         </li>
-        <li className={router.pathname === "/productes" ? "text-white block bg-blue-800 p-2" : "text-white block p-2"}>
+        <li className={router.pathname === "/productes" ? "text-white block bg-blue-800 p-2" : "text-white block p-2 hover:bg-indigo-800"}>
           <Link href="/productes">
             <a>Productes</a>
           </Link>
@@ -30,12 +30,12 @@ const Sidebar = () => {
           <p className="text-white text-2xl font-weigth">Ranking</p>
         </div>
         <nav className="mt-3 list-none">
-          <li className={router.pathname === "/topclients" ? "text-white block bg-blue-800 p-2" : "text-white block p-2"}>
+          <li className={router.pathname === "/topclients" ? "text-white block bg-blue-800 p-2" : "text-white block p-2 hover:bg-indigo-800"}>
             <Link href="/topclients">
               <a>Top Clients</a>
             </Link>
           </li>
-          <li className={router.pathname === "/topvenedors" ? "text-white block bg-blue-800 p-2" : "text-white block p-2"}>
+          <li className={router.pathname === "/topvenedors" ? "text-white block bg-blue-800 p-2" : "text-white block p-2 hover:bg-indigo-800"}>
             <Link href="/topvenedors">
               <a>Top Venedors</a>
             </Link>

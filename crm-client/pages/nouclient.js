@@ -41,7 +41,7 @@ const NouClient = () => {
       cache.writeQuery({
         query: GET_CLIENTS_BY_USER,
         data: {
-          getClientsBySalesman: [newClient, ...getClientsBySalesman ]
+          getClientsBySalesman: [newClient, ...getClientsBySalesman]
         }
       })
     }
@@ -115,7 +115,7 @@ const NouClient = () => {
         <h1 className="inline-block text-2xl text-gray-800 justify-center">Nou Client</h1>
         <button
           type="button"
-          className="inline-block bg-red-700 w-full sm:w-auto uppercase text-sm rounded px-2 text-white shadow-md"
+          className="inline-block bg-red-700 opacity-75 w-full sm:w-auto uppercase text-sm rounded px-2 text-white hover:opacity-100"
           onClick={() => cancelClient()}
         >Cancelar Client
         </button>
@@ -127,8 +127,27 @@ const NouClient = () => {
           <form className="bg-white shadow-md px-8 pt-6 pb-8 mb-4"
             onSubmit={formik.handleSubmit}>
             <div>
+              <label className="block text-gray-700 test-sm font-bold mb-2" htmlFor="company">
+                Empresa
+              </label>
+              <input
+                className="shadow-appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                id="company"
+                type="text"
+                placeholder="Empresa"
+                value={formik.values.company}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              />
+            </div>
+            {formik.touched.company && formik.errors.company ? (
+              <div className="my-2 bg-red-100 border-l-4 border-red-500 text-red-700 p-2">
+                <p>{formik.errors.company}</p>
+              </div>
+            ) : null}
+            <div>
               <label className="block text-gray-700 test-sm font-bold mb-2" htmlFor="name">
-                Nom
+                Nom contacte
               </label>
               <input
                 className="shadow-appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -147,7 +166,7 @@ const NouClient = () => {
             ) : null}
             <div>
               <label className="block text-gray-700 test-sm font-bold mb-2" htmlFor="surname">
-                Cognom
+                Cognom contacte
               </label>
               <input
                 className="shadow-appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
@@ -162,25 +181,6 @@ const NouClient = () => {
             {formik.touched.surname && formik.errors.surname ? (
               <div className="my-2 bg-red-100 border-l-4 border-red-500 text-red-700 p-2">
                 <p>{formik.errors.surname}</p>
-              </div>
-            ) : null}
-            <div>
-              <label className="block text-gray-700 test-sm font-bold mb-2" htmlFor="company">
-                Empresa
-              </label>
-              <input
-                className="shadow-appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                id="company"
-                type="text"
-                placeholder="Empresa"
-                value={formik.values.company}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-              />
-            </div>
-            {formik.touched.company && formik.errors.company ? (
-              <div className="my-2 bg-red-100 border-l-4 border-red-500 text-red-700 p-2">
-                <p>{formik.errors.company}</p>
               </div>
             ) : null}
             <div>
@@ -224,7 +224,7 @@ const NouClient = () => {
             <div className="flex justify-center">
               <input
                 type="submit"
-                className="md:w-1/2 bg-gray-700 mt-5 p-2 text-white uppercase hover:bg-gray-900"
+                className="md:w-1/2 bg-gray-700 mt-5 p-2 text-white uppercase hover:bg-gray-900 rounded"
                 value="Crear nou client"
               />
             </div>

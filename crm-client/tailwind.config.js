@@ -132,6 +132,7 @@ module.exports = {
         900: '#702459',
       },
     },
+
     spacing: {
       px: '1px',
       '0': '0',
@@ -633,7 +634,7 @@ module.exports = {
     alignSelf: ['responsive'],
     appearance: ['responsive'],
     backgroundAttachment: ['responsive'],
-    backgroundColor: ['responsive', 'hover', 'focus'],
+    backgroundColor: ['responsive', 'hover', 'focus', 'active'],
     backgroundOpacity: ['responsive', 'hover', 'focus'],
     backgroundPosition: ['responsive'],
     backgroundRepeat: ['responsive'],

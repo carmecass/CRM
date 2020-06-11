@@ -2,8 +2,9 @@ import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
 import fetch from 'node-fetch'
 import { setContext } from 'apollo-link-context';
 
+// uri:'https://polar-island-06043.herokuapp.com/',
 const httpLink = createHttpLink({
-  uri:'https://polar-island-06043.herokuapp.com/',
+  uri:' http://localhost:4000/',
   fetch
 })
 

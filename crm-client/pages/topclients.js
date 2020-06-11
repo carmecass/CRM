@@ -17,7 +17,6 @@ query getBestClients{
 }`
 
 const TopClients = () => {
-
   const { data, loading, error, startPolling, stopPolling } = useQuery(GET_BEST_CLIENTS)
 
   useEffect(() => {
@@ -27,11 +26,10 @@ const TopClients = () => {
     }
   }, [startPolling, stopPolling])
 
-
   if (loading) return <p className="my-2 bg-blue-100 border-l-4 border-blue-700 p-4 text-center">Carregant...</p>
 
   const { getBestClients } = data
-
+  
   const clientsChart = []
   getBestClients.map((client, i) => {
     clientsChart[i] = {

@@ -32,7 +32,7 @@ const Header = () => {
       <p className="mr-4 mb-5 lg:mb-0">Hola: {name} {surname}</p>
       <button
         onClick={() => logOut()}
-        className="bg-blue-800 w-full sm:w-auto uppercase text-sm rounded py-2 px-2 text-white shadow-md"
+        className="bg-blue-800 w-full sm:w-auto uppercase text-sm rounded py-2 px-2 text-white hover:bg-gray-800"
         type="button">Tancar sessió</button>
     </div>
   </>)

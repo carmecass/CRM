@@ -4,6 +4,7 @@ const Client = require('../models/client')
 const Order = require('../models/order')
 const bcryptjs = require('bcryptjs')
 const jwt = require('jsonwebtoken')
+var mongoose = require('mongoose');
 require('dotenv').config()
 
 
@@ -29,7 +30,7 @@ const resolvers = {
 
     getProducts: async () => {
       try {
-        const products = await Product.find({}).sort({name: 1})
+        const products = await Product.find({}).sort({ name: 1 })
         return products
       } catch (error) {
         console.log(error);
@@ -53,9 +54,9 @@ const resolvers = {
       }
     },
 
-    getClientsBySalesman: async (_, {}, ctx) => {
+    getClientsBySalesman: async (_, { }, ctx) => {
       try {
-        const clients = await Client.find({ salesman: ctx.user.id.toString() }).sort({company: 1 })
+        const clients = await Client.find({ salesman: ctx.user.id.toString() }).sort({ company: 1 })
         return clients
       } catch (error) {
         throw new Error("Hi ha hagut un error")
@@ -69,7 +70,7 @@ const resolvers = {
         throw new Error('No tens autorització per veure aquesta comanda')
       } else return order
     },
-    
+
     getOrders: async () => {
       try {
         return await Order.find({})
@@ -80,7 +81,7 @@ const resolvers = {
 
     getOrdersBySalesman: async (_, { }, ctx) => {
       try {
-        const orders = await Order.find({ salesman: ctx.user.id }).populate('client')
+        const orders = await Order.find({ salesman: ctx.user.id }).populate('client').sort({company: 1})
         return orders
       } catch (error) {
         console.log(error);
@@ -214,10 +215,13 @@ const resolvers = {
     },
     newClient: async (_, { input }, ctx) => {
 
-      const { email } = input
-      const clientExists = await Client.findOne({ email })
-      if (clientExists) {
-        throw new Error('Aquest client ja existeix')
+      const { email, company } = input
+      const emailExists = await Client.findOne({ email })
+      const companyExists = await Client.findOne({ company })
+      if (emailExists) {
+        throw new Error('Aquest mail ja existeix')
+      } else if (companyExists) {
+        throw new Error('Aquesta empresa ja existeix')
       }
       const newClient = new Client(input)
       newClient.salesman = ctx.user.id
@@ -253,7 +257,7 @@ const resolvers = {
           throw new Error('No tens autorització per eliminar aquest client')
         } else {
           await Client.findOneAndDelete({ _id: id })
-          return `El Client ${client.name} ${client.surname} s'ha eliminat`
+          return `El Client ${client.company} s'ha eliminat`
         }
       }
     },

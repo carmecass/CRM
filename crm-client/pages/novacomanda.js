@@ -112,7 +112,7 @@ const NovaComanda = () => {
         <h1 className="inline-block text-2xl text-gray-800 justify-center">Nova Comanda</h1>
         <button
           type="button"
-          className="inline-block bg-red-700 w-full sm:w-auto uppercase text-sm rounded px-2 text-white shadow-md"
+          className="inline-block bg-red-700 opacity-75 w-full sm:w-auto uppercase text-sm rounded px-2 text-white hover:opacity-100"
           onClick={() => cancelOrder()}
         >Cancelar Comanda
         </button>
@@ -120,14 +120,14 @@ const NovaComanda = () => {
       {messageError && showError()}
       {messageConfirm && showConfirm()}
       <div className="flex justify-center mt-3">
-        <div className="w-full max-w-lg">
+        <div className="w-full max-w-xl">
           <AssignClient />
           <AssignProduct />
           <OrderRecap />
           <Total />
           <button
             type="button"
-            className={`bg-gray-700 w-full mt-5 p-2 text-white uppercase font-bold hover:bg-gray-900 ${validationOrder()}`}
+            className={`bg-gray-700 w-full mt-5 p-2 text-white uppercase font-bold hover:bg-gray-900 rounded ${validationOrder()}`}
             onClick={() => saveNewOrder()}
           >Guardar Comanda</button>
         </div>

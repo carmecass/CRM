@@ -112,7 +112,7 @@ const NouProducte = () => {
         <h1 className="inline-block text-2xl text-gray-800 justify-center">Nou Producte</h1>
         <button
           type="button"
-          className="inline-block bg-red-700 w-full sm:w-auto uppercase text-sm rounded px-2 text-white shadow-md"
+          className="inline-block bg-red-700 opacity-75 w-full sm:w-auto uppercase text-sm rounded px-2 text-white hover:opacity-100"
           onClick={() => cancelProduct()}
         >Cancelar Producte
         </button>
@@ -183,7 +183,7 @@ const NouProducte = () => {
             <div className="flex justify-center">
               <input
                 type="submit"
-                className="md:w-1/2 bg-gray-700 mt-5 p-2 text-white uppercase hover:bg-gray-900"
+                className="md:w-1/2 bg-gray-700 mt-5 p-2 text-white uppercase hover:bg-gray-900 rounded"
                 value="Crear nou producte"
               />
             </div>

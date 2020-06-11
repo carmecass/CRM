@@ -24,9 +24,11 @@ query getOrdersBySalesman {
 
 const Order = ({ order }) => {
   const { id, total, client: { name, surname, company, email, phone }, stage, client } = order
-  const totalFloat = total.toFixed(2)
+  const totalFloat =new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(total)
+  
   const [orderStage, setOrderStage] = useState(stage)
   const [colorStage, setColorStage] = useState('')
+  const [colorSelectStage, setColorSelectStage] = useState('')
 
   const [updateOrder] = useMutation(UPDATE_ORDER)
 
@@ -52,10 +54,13 @@ const Order = ({ order }) => {
   const changeColorStage = () => {
     if (orderStage === "PENDENT") {
       setColorStage('border-yellow-500')
+      setColorSelectStage('bg-yellow-500 border border-yellow-600')
     } else if (orderStage === "ACABADA") {
       setColorStage('border-green-500')
+      setColorSelectStage('bg-green-500 border border-green-600')
     } else {
       setColorStage('border-red-700')
+      setColorSelectStage('bg-red-700 border border-red-800')
     }
   }
 
@@ -80,8 +85,8 @@ const Order = ({ order }) => {
     Swal.fire({
       html: `Estàs segur d'eliminar aquesta comanda? <br> Aquesta acció no és pot desfer`,
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
+      confirmButtonColor: '#2c5282',
+      cancelButtonColor: '#c53030',
       confirmButtonText: 'Si, eliminar',
       cancelButtonText: 'No, cancelar'
     }).then(async (result) => {
@@ -96,7 +101,6 @@ const Order = ({ order }) => {
         } catch (error) { console.log(error) }
       }
     })
-
   }
 
   return (
@@ -114,11 +118,11 @@ const Order = ({ order }) => {
         )}
         <h2 className="text-gray-800 font-bold mt-8">Estat comanda:</h2>
         <select
-          className="mt-2 cursor-pointer appearance-none bg-blue-600 border border-blue-600 text-white text-justify p-2 rounded focus:outline-none focus:bg-blue-600 focus:border-blue-500 uppercase text-xs font-bold "
+          className={`${colorSelectStage} mt-2 cursor-pointer appearance-none text-white text-justify p-2 rounded opacity-75 hover:opacity-100 uppercase text-sm`}
           value={orderStage}
           onChange={e => changeStage(e.target.value)}
         >
-          <option className=" align-itemtext-center" value="ACABADA">ACABADA</option>
+          <option className="text-center" value="ACABADA">ACABADA</option>
           <option className="text-center" value="PENDENT">PENDENT</option>
           <option className="text-center" value="CANCELADA">CANCELADA</option>
         </select>
@@ -131,16 +135,17 @@ const Order = ({ order }) => {
             <p className="text-sm text-gray-600">Quantitat: {item.quantity}</p>
           </div>
         ))}
-        <p className="text-gray-800 mt-3 font-bold">Total a pagar:
-          <span className="font-light"> {totalFloat}€</span>
+        <p className="text-gray-800 mt-3 font-bold rounded">Total a pagar:
+          <span className="font-light"> {totalFloat}</span>
         </p>
-        <button
-          className="flex items-center mt-4 bg-red-700 p-2 inline-block text-sm text-white rounded leading-tight uppercase test-xs font-bold"
-          onClick={() => deleteOrderById()}
-        >
-          Eliminar
-          <svg fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" stroke="currentColor" viewBox="0 0 24 24" className="w-4 h-4 ml-2"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-        </button>
+        <div className="flex justify-left">
+          <button
+            className="bg-red-700 mt-5 py-1 px-6 text-white rounded opacity-75 hover:opacity-100"
+            onClick={() => deleteOrderById()}
+          >
+            <svg fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" stroke="currentColor" viewBox="0 0 24 24" className="w-8 h-8"><path d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+          </button>
+        </div>
       </div>
     </div>
   )

@@ -126,7 +126,7 @@ const Login = () => {
               <div className="flex justify-center">
                 <input
                   type="submit"
-                  className="md:w-1/2 bg-gray-800 w-full mt-5 p-2 text-white uppercas hover:cursor-pointer hover:bg-gray-900"
+                  className="md:w-1/2 bg-gray-800 w-full mt-5 p-2 text-white uppercas rounded cursor-pointer hover:bg-gray-900"
                   value="Iniciar Sessió"
                 />
               </div>
