@@ -59,6 +59,8 @@ const Comandes = () => {
 
   if (loading) return <p className="my-2 bg-blue-100 border-l-4 border-blue-700 p-4 text-center">Carregant...</p>
   const { getOrdersBySalesman } = data
+  console.log(getOrdersBySalesman);
+  
 
   const filterStage = (newStage) => {
     setFilterOrders(getOrdersBySalesman.filter(
@@ -104,8 +106,8 @@ const Comandes = () => {
                 filterOrders.length === 0 && orderStage && orderStage !== "TOTS ELS ESTATS" ? (
                   <p className="mt-5 text-center text-2xl">No hi ha cap comanda {orderStage} </p>
                 ) : (
-                    getOrdersBySalesman.map(order => (
-                      <Order key={order.id} order={order} />
+                    getOrdersBySalesman.map((order, i) => (
+                      <Order key={i} order={order} />
                     ))
                   )
               )

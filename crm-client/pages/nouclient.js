@@ -75,7 +75,7 @@ const NouClient = () => {
             }
           }
         })
-        setMessageConfirm(`El client ${data.newClient.name} ${data.newClient.surname} s'ha creat correctament`)
+        setMessageConfirm(`El client ${data.newClient.company} s'ha creat correctament`)
         setTimeout(() => {
           setMessageConfirm(null)
           router.push('/clients')

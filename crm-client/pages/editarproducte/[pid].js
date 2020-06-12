@@ -47,7 +47,7 @@ const EditarProducte = () => {
       .required('El preu és obligatori')
       .positive(`No s'admeten números negatius`)
   })
-
+  if (!id) loading
   if (loading) return <p className="my-2 bg-blue-100 border-l-4 border-blue-700 p-4 text-center">Carregant...</p>
   if (!data) return 'Acció no permesa'
 

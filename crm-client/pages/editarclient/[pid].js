@@ -9,6 +9,7 @@ import Swal from 'sweetalert2'
 const GET_CLIENT = gql`
   query getClient($id: ID!) {
     getClient(id:$id) {
+    id
     name
     surname
     company
@@ -29,11 +30,12 @@ const UPDATE_CLIENT = gql`
   }
 }`
 
-const EditarClient = () => {
-  const router = useRouter()
+const EditarClient =  () => {
+ const router = useRouter()
 
   const { query: { id } } = router
-
+  console.log('id', id);
+  
   const { data, loading, error } = useQuery(GET_CLIENT, {
     variables: {
       id
@@ -41,6 +43,9 @@ const EditarClient = () => {
   })
 
   const [updateClient] = useMutation(UPDATE_CLIENT)
+  
+  if (loading) return <p className="my-2 bg-blue-100 border-l-4 border-blue-700 p-4 text-center">Carregant...</p>
+  const { getClient } = data
 
   const schemaValidation = Yup.object({
     name: Yup.string().required('El nom és obligatori'),
@@ -49,8 +54,6 @@ const EditarClient = () => {
     email: Yup.string().email(`L'email no és vàlid`).required(`L'email és obligatori`)
   });
 
-  if (loading) return <p className="my-2 bg-blue-100 border-l-4 border-blue-700 p-4 text-center">Carregant...</p>
-  const { getClient } = data
 
   const updateInfoClient = async values => {
     const { name, surname, company, email, phone } = values;
@@ -67,7 +70,7 @@ const EditarClient = () => {
           }
         }
       })
-      Swal.fire(`El client ${name} ${surname} s'ha actualitzat correctament`)
+      Swal.fire(`El client ${company} s'ha actualitzat correctament`)
       router.push('/clients')
     } catch (error) {
       console.log(error);
