@@ -48,7 +48,7 @@ const EditarClient = () => {
     email: Yup.string().email(`L'email no és vàlid`).required(`L'email és obligatori`)
   });
 
-  if (!id) loading
+  if (!id || data === undefined) loading
   if (loading) return <p className="my-2 bg-blue-100 border-l-4 border-blue-700 p-4 text-center">Carregant...</p>
   if (!data) return 'Acció no permesa'
 
