@@ -70,7 +70,7 @@ const EditarClient = () => {
           }
         }
       })
-      Swal.fire(`El client ${company} s'ha actualitzat correctament`)
+      Swal.fire(`El client s'ha actualitzat correctament`)
       router.push('/clients')
     } catch (error) {
       console.log(error);
