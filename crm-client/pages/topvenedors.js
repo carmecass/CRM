@@ -18,7 +18,7 @@ query getBestSalesmans{
 }`
 
 const TopVenedors = () => {
-  const { data, loading, error, startPolling, stopPolling } = useQuery(GET_BEST_SALESMANS)
+  const { data=[], loading, error, startPolling, stopPolling } = useQuery(GET_BEST_SALESMANS)
 
   useEffect(() => {
     startPolling(1000)

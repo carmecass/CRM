@@ -17,7 +17,7 @@ query getBestClients{
 }`
 
 const TopClients = () => {
-  const { data, loading, error, startPolling, stopPolling } = useQuery(GET_BEST_CLIENTS)
+  const { data=[], loading, error, startPolling, stopPolling } = useQuery(GET_BEST_CLIENTS)
 
   useEffect(() => {
     startPolling(1000);

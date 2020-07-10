@@ -14,11 +14,11 @@ query getUser {
 const Header = () => {
   const router = useRouter()
 
-  const { data, loading, error } = useQuery(GET_USER)
-
+  const { data=[], loading, error } = useQuery(GET_USER)
+  
   if (loading) return <p className="my-2 bg-blue-100 border-l-4 border-blue-700 p-4 text-center">Carregant...</p>
 
-  if (!data) return router.push('/')
+  if (!data ) return router.push('/')
 
   const { name, surname } = data.getUser
 

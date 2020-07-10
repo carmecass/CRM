@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Layout from '../../Components/Layout'
 import { Formik, } from 'formik'
-import { useQuery, gql, useMutation } from '@apollo/client'
+import { useQuery, gql, useMutation, useLazyQuery } from '@apollo/client'
 import * as Yup from 'yup'
 import Swal from 'sweetalert2'
 
@@ -30,20 +30,20 @@ const UPDATE_CLIENT = gql`
   }
 }`
 
-const EditarClient =  () => {
- const router = useRouter()
-
+const EditarClient = () => {
+  const router = useRouter()
   const { query: { id } } = router
-  console.log('id', id);
-  
-  const { data, loading, error } = useQuery(GET_CLIENT, {
+
+  useEffect(() => {
+  }, [id])
+
+  const { data=[], loading, error } = useQuery(GET_CLIENT, {
     variables: {
       id
     }
   })
-
   const [updateClient] = useMutation(UPDATE_CLIENT)
-  
+
   if (loading) return <p className="my-2 bg-blue-100 border-l-4 border-blue-700 p-4 text-center">Carregant...</p>
   const { getClient } = data
 
@@ -78,7 +78,7 @@ const EditarClient =  () => {
   }
 
   const cancelClient = () => {
-    return router.push('/clients')
+    router.push('/clients')
   }
 
   return (

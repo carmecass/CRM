@@ -19,7 +19,7 @@ const AssignClient = () => {
   const contextOrder = useContext(ContextOrder)
   const {addClient} = contextOrder
 
-  const {data, loading, error} = useQuery(GET_CLIENTS_BY_USER)
+  const {data=[], loading, error} = useQuery(GET_CLIENTS_BY_USER)
 
   useEffect(() => {
     addClient(client)

@@ -59,8 +59,6 @@ const Comandes = () => {
 
   if (loading) return <p className="my-2 bg-blue-100 border-l-4 border-blue-700 p-4 text-center">Carregant...</p>
   const { getOrdersBySalesman } = data
-  console.log(getOrdersBySalesman);
-  
 
   const filterStage = (newStage) => {
     setFilterOrders(getOrdersBySalesman.filter(
@@ -89,9 +87,9 @@ const Comandes = () => {
               onChange={e => filterStage(e.target.value)}
             >
               <option value="TOTS ELS ESTATS">TOTS ELS ESTATS</option>
-              <option value="ACABADA">ACABADA</option>
-              <option value="PENDENT">PENDENT</option>
-              <option value="CANCELADA">CANCELADA</option>
+              <option className="bg-green-500 text-white" value="ACABADA">ACABADA</option>
+              <option className="bg-yellow-500 text-white" value="PENDENT">PENDENT</option>
+              <option className="bg-red-700 text-white" value="CANCELADA">CANCELADA</option>
             </select>
           </div>
         </div>

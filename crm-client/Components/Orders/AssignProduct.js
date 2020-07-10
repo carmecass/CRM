@@ -19,7 +19,7 @@ const AssignProduct = () => {
   const contextOrder = useContext(ContextOrder)
   const { addProduct } = contextOrder
 
-  const { data, loading, error, startPolling, stopPolling } = useQuery(GET_PRODUCTS)
+  const { data=[], loading, error, startPolling, stopPolling } = useQuery(GET_PRODUCTS)
 
   useEffect(() => {
     startPolling(1000)

@@ -30,7 +30,7 @@ mutation updateProduct($id: ID!, $input: ProductInput) {
 const EditarProducte = () => {
   const router = useRouter()
   const { query: { id } } = router
-  const { data, loading, error } = useQuery(GET_PRODUCT, {
+  const { data=[], loading, error } = useQuery(GET_PRODUCT, {
     variables: {
       id
     }

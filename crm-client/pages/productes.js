@@ -16,7 +16,7 @@ const GET_PRODUCTS = gql`
 
 const Productes = () => {
 
-  const { data, loading, error, startPolling, stopPolling } = useQuery(GET_PRODUCTS)
+  const { data=[], loading, error, startPolling, stopPolling } = useQuery(GET_PRODUCTS)
 
   useEffect(() => {
     startPolling(100)

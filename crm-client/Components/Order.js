@@ -122,9 +122,9 @@ const Order = ({ order }) => {
           value={orderStage}
           onChange={e => changeStage(e.target.value)}
         >
-          <option className="text-center" value="ACABADA">ACABADA</option>
-          <option className="text-center" value="PENDENT">PENDENT</option>
-          <option className="text-center" value="CANCELADA">CANCELADA</option>
+          <option className="text-center bg-green-500" value="ACABADA">ACABADA</option>
+          <option className="text-center bg-yellow-500" value="PENDENT">PENDENT</option>
+          <option className="text-center bg-red-700" value="CANCELADA">CANCELADA</option>
         </select>
       </div>
       <div className="ml-4">

@@ -18,7 +18,7 @@ query getClientsBySalesman{
 
 const Index = () => {
   const router = useRouter()
-  const { data, loading, error, startPolling, stopPolling } = useQuery(GET_CLIENTS_BY_USER)
+  const { data=[], loading, error, startPolling, stopPolling } = useQuery(GET_CLIENTS_BY_USER)
 
   useEffect(() => {
     startPolling(100)
