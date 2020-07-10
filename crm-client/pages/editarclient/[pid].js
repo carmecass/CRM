@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useRouter } from 'next/router'
 import Layout from '../../Components/Layout'
 import { Formik, } from 'formik'
@@ -33,9 +33,6 @@ const UPDATE_CLIENT = gql`
 const EditarClient = () => {
   const router = useRouter()
   const { query: { id } } = router
-
-  useEffect(() => {
-  }, [id])
 
   const { data=[], loading, error } = useQuery(GET_CLIENT, {
     variables: {
