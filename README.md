@@ -5,7 +5,10 @@ Gestión de pedidos por vendedor, tablas de pedidos con filtros (pendiente, fina
 Gráficas de vendedores y top clientes.
 
 
-## [Video] (https://youtu.be/j39P2WbRCho)
+Video Demo
+
+https://youtu.be/j39P2WbRCho
+[![Video Demo](https://img.youtube.com/vi/j39P2WbRCho/0.jpg)](https://www.youtube.com/watch?v=j39P2WbRCho)
 
 ## [Api](crm-api/README.md)
 
