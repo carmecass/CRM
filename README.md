@@ -1,7 +1,7 @@
 # CRM
-Realizado con React-GraphQl-Next.js-Apollo-Node.js-Mongoose-Mongodb-Tailwind-Formik-Yup
-Administración de clientes por vendedor, gestión nuevos clientes, modificación y eliminación, productos altas, bajas ,modificación de los mismos y control de stock. 
-Gestión de pedidos por vendedor, tablas de pedidos con filtros (pendiente, finalizado y cancelado), actualización del stock tanto en la eliminación de un pedido como en su creación.
+Realizado con React-GraphQl-Next.js-Apollo-Node.js-Mongoose-Mongodb-Tailwind-Formik-Yup <br/>
+Administración de clientes por vendedor, gestión nuevos clientes, modificación y eliminación, productos altas, bajas ,modificación de los mismos y control de stock.  <br/>
+Gestión de pedidos por vendedor, tablas de pedidos con filtros (pendiente, finalizado y cancelado), actualización del stock tanto en la eliminación de un pedido como en su creación. <br/>
 Gráficas de vendedores y top clientes.
 
 
