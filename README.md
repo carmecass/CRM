@@ -5,8 +5,6 @@ Gestión de pedidos por vendedor, tablas de pedidos con filtros (pendiente, fina
 Gráficas de vendedores y top clientes.
 
 
-<!-- ## [Demo](https://crm-client.carmecass.now.sh) -->
-
 ## [Video demo] (https://youtu.be/j39P2WbRCho)
 
 ## [Api](crm-api/README.md)
