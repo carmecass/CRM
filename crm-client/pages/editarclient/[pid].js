@@ -34,7 +34,7 @@ const EditarClient = () => {
   const router = useRouter()
   const { query: { id } } = router
 
-  const { data=[], loading, error } = useQuery(GET_CLIENT, {
+  const { data = [], loading, error } = useQuery(GET_CLIENT, {
     variables: {
       id
     }
@@ -50,10 +50,8 @@ const EditarClient = () => {
 
   if (!id || data === undefined) loading
   if (loading) return <p className="my-2 bg-blue-100 border-l-4 border-blue-700 p-4 text-center">Carregant...</p>
-  if (!data) return 'Acció no permesa'
 
   const { getClient } = data
-console.log('getClient',getClient);
   const updateInfoClient = async values => {
     const { name, surname, company, email, phone } = values;
     try {
@@ -69,8 +67,7 @@ console.log('getClient',getClient);
           }
         }
       })
-      console.log('data',data);
-      Swal.fire(`El client s'ha actualitzat correctament`)
+      Swal.fire(`El client ${company} s'ha actualitzat correctament`)
       router.push('/clients')
     } catch (error) {
       console.log(error);
@@ -103,10 +100,10 @@ console.log('getClient',getClient);
             }}
           >
             {props => {
-              console.log('props',props);
               return (
                 <form className="bg-white shadow-md px-8 pt-6 pb-8 mb-4"
                   onSubmit={props.handleSubmit}
+
                 >
                   <div>
                     <label className="block text-gray-700 test-sm font-bold mb-2" htmlFor="company">

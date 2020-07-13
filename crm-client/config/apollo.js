@@ -2,8 +2,9 @@ import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
 import fetch from 'node-fetch'
 import { setContext } from 'apollo-link-context';
 
+const { REACT_APP_URL, REACT_APP_LOCAL } = process.env
 const httpLink = createHttpLink({
-  uri: 'https://polar-island-06043.herokuapp.com/',
+  uri:REACT_APP_URL,
   fetch
 })
 

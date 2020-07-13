@@ -44,12 +44,12 @@ const Login = () => {
         setTimeout(() => {
           const { token } = data.userAuthenticate
           localStorage.setItem('token', token)
-        }, 600);
+        }, 2000);
 
         setTimeout(() => {
           setMessageConfirm(null)
           router.push('/clients')
-        }, 2000);
+        }, 2100);
 
       } catch (error) {
         setMessageError(error.message.replace('GraphQL error: ', ''))

@@ -1,13 +1,13 @@
 # CRM
-Administración de clientes generales y por vendedor, gestión nuevos clientes, productos, eliminación y modificación de los mismos. 
-Gestión de pedidos, tablas de pedidos con filtros.
+Realizado con React-GraphQl-Next.js-Apollo-Node.js-Mongoose-Mongodb-Tailwind-Formik-Yup
+Administración de clientes por vendedor, gestión nuevos clientes, modificación y eliminación, productos altas, bajas ,modificación de los mismos y control de stock. 
+Gestión de pedidos por vendedor, tablas de pedidos con filtros (pendiente, finalizado y cancelado), actualización del stock tanto en la eliminación de un pedido como en su creación.
 Gráficas de vendedores y top clientes.
 
-Para poder entrar en el CRM los datos son :
-USUARIO : tc@mail.com
-PASSWORD: 123456
 
-## [Demo](https://crm-client.carmecass.now.sh)
+<!-- ## [Demo](https://crm-client.carmecass.now.sh) -->
+
+## [Video demo] (https://youtu.be/j39P2WbRCho)
 
 ## [Api](crm-api/README.md)
 
